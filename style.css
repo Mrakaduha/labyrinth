@@ -1,15 +1,20 @@
+
 body {
   margin: 0;
-  background: rgb(153,193,241);
+  background: #000;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
 #labyrinth {
-  margin-top: 20px;
+  transform: scale(min(85vmin / 600, 1));
+  transform-origin: top center;
   position: relative;
+  margin-top: 40px;
 }
 
 #labyrinth svg {
@@ -28,36 +33,45 @@ body {
   top: 0;
   left: 0;
   width: 600px;
-  height: auto;
+  height: 600px;
   pointer-events: none;
 }
 
 button {
-  margin-top: 20px;
-  padding: 12px 28px;
+  margin-top: 16px;
+  padding: 14px 32px;
   font-size: 16px;
   cursor: pointer;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #e6e6e6;
+  color: #000;
+
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #f2f2f2;
 }
 
 #settingsPanel {
   display: none;
-  margin-top: 20px;
-  text-align: left;
-}
 
-#settingsPanel label {
-  display: block;
-  margin: 10px 0;
-}
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-#settingsPanel {
-  display: none;
-  margin-top: 20px;
-  padding: 20px;
+  padding: 24px;
+
   background: #111;
-  border-radius: 8px;
   color: white;
-  width: min(90vmin, 600px);
+
+  border-radius: 12px;
+
+  width: min(90vw, 420px);
   box-sizing: border-box;
 }
 
@@ -66,15 +80,45 @@ button {
   justify-content: space-between;
   align-items: center;
   margin: 16px 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 #settingsPanel input {
-  margin-left: 10px;
-  font-size: 20px;
+  margin-left: 12px;
+  font-size: 18px;
   padding: 6px 8px;
+}
+
+#settingsPanel label {
+  gap: 12px;
+}
+
+#settingsPanel input {
+  width: 80px;
+  text-align: right;
+}
+
+#settingsPanel input[type="color"] {
+  width: 40px;
+  height: 32px;
+  padding: 0;
+  border: none;
+}
+
+#settingsPanel button {
+  margin-top: 20px;
+  width: 100%;
 }
 
 button {
   margin-top: 12px;
+}
+
+#aboutPage {
+  display: none;
+  max-width: 600px;
+  margin-top: 40px;
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 18px;
 }
