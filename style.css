@@ -1,17 +1,35 @@
 body {
   margin: 0;
-  background: black;
+  background: rgb(153,193,241);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  font-family: sans-serif;
+}
+
+#labyrinth {
+  margin-top: 20px;
+  position: relative;
 }
 
 #labyrinth svg {
-  width: min(90vmin, 600px);
-  height: min(90vmin, 600px);
+  width: 600px;
+  height: auto;
+  display: block;
+}
+
+#labyrinth img {
+  display: block;
+  width: 600px;
+}
+
+#ballLayer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: auto;
+  pointer-events: none;
 }
 
 button {

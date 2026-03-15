@@ -13,13 +13,21 @@ async function init() {
   const response = await fetch("centerline.svg");
   const svgText = await response.text();
 
-  const container = document.getElementById("labyrinth");
-  container.innerHTML = svgText;
+  const hidden = document.createElement("div");
+  hidden.style.display = "none";
+  hidden.innerHTML = svgText;
+
+  document.body.appendChild(hidden);
 
   const path = document.getElementById("centerline");
   const length = path.getTotalLength();
+  
+  console.log(path.getBBox());
 
   const svg = document.querySelector("svg");
+  
+  svg.setAttribute("width", "730");
+  svg.setAttribute("height", "730");
 
   const ball = document.createElementNS("http://www.w3.org/2000/svg", "circle");
   ball.setAttribute("r", ballRadius);
