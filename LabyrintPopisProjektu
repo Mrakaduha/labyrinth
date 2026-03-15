@@ -1,0 +1,24 @@
+Labyrint: popis projektu
+
+* Jednoduchá stažitelná aplikace
+* Smyslem je meditativní pozorování průběhu kuličky labyrintem v Chartres. Vlastní tvar labyrintu má vliv na celý proces, není zaměnitelný jiným tvarem.
+
+- kulička běží labyrintem od vchodu do středu, ve středu se na okamžik zastaví a běží zpátky
+- uživatel si může nastavit barvu pozadí, kuličky a délku průběhu
+- ovládá jen tlačítko start, v průběhu jen pozoruje cestu kuličku; když kulička doběhne, může ji poslat zase na cestu
+- průběh nedoprovázejí žádné zvuky
+- apliakce má dvě stránky, labyrint a textový komentář
+
+Technické poznámky
+
+oddělené soubory:
+
+labyrinth.svg – grafika labyrintu (jen vizuál)
+
+centerline.svg – neviditelná trajektorie, po které pojede kulička
+
+index.html – stránka aplikace
+
+style.css – vzhled (barvy, layout)
+
+app.js – logika pohybu kuličky

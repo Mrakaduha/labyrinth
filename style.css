@@ -1,0 +1,62 @@
+body {
+  margin: 0;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+#labyrinth svg {
+  width: min(90vmin, 600px);
+  height: min(90vmin, 600px);
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#settingsPanel {
+  display: none;
+  margin-top: 20px;
+  text-align: left;
+}
+
+#settingsPanel label {
+  display: block;
+  margin: 10px 0;
+}
+
+#settingsPanel {
+  display: none;
+  margin-top: 20px;
+  padding: 20px;
+  background: #111;
+  border-radius: 8px;
+  color: white;
+  width: min(90vmin, 600px);
+  box-sizing: border-box;
+}
+
+#settingsPanel label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 16px 0;
+  font-size: 20px;
+}
+
+#settingsPanel input {
+  margin-left: 10px;
+  font-size: 20px;
+  padding: 6px 8px;
+}
+
+button {
+  margin-top: 12px;
+}
