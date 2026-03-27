@@ -3,7 +3,7 @@
 let journeyMinutes = 3;
 let pauseSeconds = 5;
 
-let ballColor = "#ff0000";
+let ballColor = "#c49a3a";
 let ballRadius = 8;
 
 let backgroundColor = "#000000";
@@ -189,7 +189,7 @@ async function init() {
 
     journeyMinutes = 3;
     pauseSeconds = 5;
-    ballColor = "#ff0000";
+    ballColor = "#c49a3a";
     backgroundColor = "#000000";
 
     document.getElementById("journeyInput").value = journeyMinutes;
@@ -201,6 +201,19 @@ async function init() {
     ball.setAttribute("fill", ballColor);
 
     saveSettings();
+
+  });
+    document.getElementById("aboutButton").addEventListener("click", () => {
+    document.getElementById("aboutPage").style.display = "block";
+  });
+    document.getElementById("closeAbout").addEventListener("click", () => {
+    document.getElementById("aboutPage").style.display = "none";
+  });
+    document.getElementById("aboutPage").addEventListener("click", (e) => {
+
+     if (e.target.id === "aboutPage") {
+        e.currentTarget.style.display = "none";
+      }
 
   });
 

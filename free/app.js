@@ -188,7 +188,7 @@ async function init() {
 
     journeyMinutes = 3;
     pauseSeconds = 5;
-    ballColor = "#ff0000";
+    ballColor = "#c49a3a";
     backgroundColor = "#000000";
 
     document.getElementById("journeyInput").value = journeyMinutes;
