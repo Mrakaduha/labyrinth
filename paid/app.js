@@ -114,6 +114,7 @@ async function init() {
 
         document.getElementById("startButton").style.display = "block";
         document.getElementById("settingsButton").style.display = "block";
+        document.getElementById("aboutButton").style.display = "block";
 
       }
 
@@ -133,6 +134,8 @@ async function init() {
       document.getElementById("startButton").style.display = "none";
       document.getElementById("settingsButton").style.display = "none";
       document.getElementById("settingsPanel").style.display = "none";
+      document.getElementById("aboutButton").style.display = "none";
+      document.getElementById("aboutPage").style.display = "none";
 
     }
 
@@ -204,10 +207,10 @@ async function init() {
 
   });
     document.getElementById("aboutButton").addEventListener("click", () => {
-    document.getElementById("aboutPage").style.display = "block";
+    document.getElementById("aboutPage").classList.add("active");
   });
     document.getElementById("closeAbout").addEventListener("click", () => {
-    document.getElementById("aboutPage").style.display = "none";
+    document.getElementById("aboutPage").classList.remove("active");
   });
     document.getElementById("aboutPage").addEventListener("click", (e) => {
 
