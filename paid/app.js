@@ -7,6 +7,12 @@ let ballColor = "#c49a3a";
 let ballRadius = 8;
 
 let backgroundColor = "#000000";
+let deferredPrompt;
+
+window.addEventListener("beforeinstallprompt", (e) => {
+      e.preventDefault();
+      deferredPrompt = e;
+      });
 
 async function init() {
 
@@ -219,7 +225,14 @@ async function init() {
       }
 
   });
-
+    document.getElementById("getButton").addEventListener("click", async () => {
+      if (deferredPrompt) {
+        deferredPrompt.prompt();
+        await deferredPrompt.userChoice;
+        deferredPrompt = null;
+      }
+  });
+    
 }
 
 if ("serviceWorker" in navigator) {
