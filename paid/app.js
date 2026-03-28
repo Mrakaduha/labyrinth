@@ -12,13 +12,13 @@ let deferredPrompt;
 window.addEventListener("beforeinstallprompt", (e) => {
       e.preventDefault();
       deferredPrompt = e;
+
+      document.getElementById("getButton").style.display = "block";
       });
 
 async function init() {
 
-  if (localStorage.getItem("installed") === "true") {
   document.getElementById("getButton").style.display = "none";
-  }
 
   const response = await fetch("centerline.svg");
   const svgText = await response.text();
@@ -124,9 +124,6 @@ async function init() {
 
         document.getElementById("startButton").style.display = "block";
         document.getElementById("settingsButton").style.display = "block";
-        document.getElementById("aboutButton").style.display = "block";
-        document.getElementById("getButton").style.display = "block";
-
       }
 
     }
@@ -145,8 +142,6 @@ async function init() {
       document.getElementById("startButton").style.display = "none";
       document.getElementById("settingsButton").style.display = "none";
       document.getElementById("settingsPanel").style.display = "none";
-      document.getElementById("aboutButton").style.display = "none";
-      document.getElementById("aboutPage").style.display = "none";
       document.getElementById("getButton").style.display = "none";
 
     }
@@ -218,20 +213,9 @@ async function init() {
     saveSettings();
 
   });
-    document.getElementById("aboutButton").addEventListener("click", () => {
-    document.getElementById("aboutPage").classList.add("active");
-  });
-    document.getElementById("closeAbout").addEventListener("click", () => {
-    document.getElementById("aboutPage").classList.remove("active");
-  });
-    document.getElementById("aboutPage").addEventListener("click", (e) => {
-
-     if (e.target.id === "aboutPage") {
-        e.currentTarget.style.display = "none";
-      }
-
-  });
+  
     document.getElementById("getButton").addEventListener("click", async () => {
+      document.getElementById("getButton").style.display = "none";
       if (deferredPrompt) {
         deferredPrompt.prompt();
         localStorage.setItem("installed", "true");
