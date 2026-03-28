@@ -142,6 +142,7 @@ async function init() {
       document.getElementById("settingsPanel").style.display = "none";
       document.getElementById("aboutButton").style.display = "none";
       document.getElementById("aboutPage").style.display = "none";
+      document.getElementById("getButton").style.display = "none";
 
     }
 
