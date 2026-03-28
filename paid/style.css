@@ -11,29 +11,28 @@ body {
 }
 
 #labyrinth {
-  transform: scale(min(75vmin / 600, 1));
-  transform-origin: top center;
+  width: min(90vw, 600px);
   position: relative;
-  margin-top: 20px;
+  margin: 20px auto 0;
 }
 
 #labyrinth svg {
-  width: 600px;
+  width: 100%;
   height: auto;
   display: block;
 }
 
 #labyrinth img {
   display: block;
-  width: 600px;
+  width: 100%;
 }
 
 #ballLayer {
   position: absolute;
   top: 0;
   left: 0;
-  width: 600px;
-  height: 600px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
   pointer-events: none;
 }
 
