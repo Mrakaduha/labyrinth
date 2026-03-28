@@ -11,10 +11,10 @@ body {
 }
 
 #labyrinth {
-  transform: scale(min(85vmin / 600, 1));
+  transform: scale(min(75vmin / 600, 1));
   transform-origin: top center;
   position: relative;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 
 #labyrinth svg {
