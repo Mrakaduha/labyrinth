@@ -16,6 +16,10 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 async function init() {
 
+  if (localStorage.getItem("installed") === "true") {
+  document.getElementById("getButton").style.display = "none";
+  }
+
   const response = await fetch("centerline.svg");
   const svgText = await response.text();
 
@@ -121,6 +125,7 @@ async function init() {
         document.getElementById("startButton").style.display = "block";
         document.getElementById("settingsButton").style.display = "block";
         document.getElementById("aboutButton").style.display = "block";
+        document.getElementById("getButton").style.display = "block";
 
       }
 
@@ -229,6 +234,7 @@ async function init() {
     document.getElementById("getButton").addEventListener("click", async () => {
       if (deferredPrompt) {
         deferredPrompt.prompt();
+        localStorage.setItem("installed", "true");
         await deferredPrompt.userChoice;
         deferredPrompt = null;
       }
