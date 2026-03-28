@@ -225,6 +225,13 @@ async function init() {
   });
     
 }
+document.addEventListener("pointerdown", (e) => {
+  const panel = document.getElementById("settingsPanel");
+
+  if (panel.style.display === "block" && !panel.contains(e.target)) {
+    panel.style.display = "none";
+  }
+});
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
