@@ -112,3 +112,10 @@ button:hover {
 button {
   margin-top: 12px;
 }
+
+#overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: transparent;
+}

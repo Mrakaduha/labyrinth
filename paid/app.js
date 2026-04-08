@@ -18,6 +18,9 @@ window.addEventListener("beforeinstallprompt", (e) => {
 
 async function init() {
 
+  const panel = document.getElementById("settingsPanel");
+  const overlay = document.getElementById("overlay");
+
   document.getElementById("getButton").style.display = "none";
 
   const response = await fetch("centerline.svg");
@@ -154,11 +157,16 @@ async function init() {
 
   document.getElementById("settingsButton").addEventListener("click", () => {
 
-    const panel = document.getElementById("settingsPanel");
+    const isOpen = panel.style.display === "block";
 
-    panel.style.display =
-      panel.style.display === "none" ? "block" : "none";
+    panel.style.display = isOpen ? "none" : "block";
+    overlay.style.display = isOpen ? "none" : "block";
 
+  });
+
+  overlay.addEventListener("pointerdown", () => {
+    panel.style.display = "none";
+    overlay.style.display = "none";
   });
 
   document.getElementById("journeyInput").addEventListener("input", (e) => {
@@ -214,24 +222,23 @@ async function init() {
 
   });
   
-    document.getElementById("getButton").addEventListener("click", async () => {
-      document.getElementById("getButton").style.display = "none";
+    const getBtn = document.getElementById("getButton");
+
+    getBtn.addEventListener("click", async () => {
+
+      // okamžitá reakce
+      getBtn.textContent = "Installing…";
+      getBtn.disabled = true;
+
       if (deferredPrompt) {
         deferredPrompt.prompt();
         localStorage.setItem("installed", "true");
         await deferredPrompt.userChoice;
         deferredPrompt = null;
       }
-  });
+    });
     
 }
-document.addEventListener("pointerdown", (e) => {
-  const panel = document.getElementById("settingsPanel");
-
-  if (panel.style.display === "block" && !panel.contains(e.target)) {
-    panel.style.display = "none";
-  }
-});
 
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("./service-worker.js");
